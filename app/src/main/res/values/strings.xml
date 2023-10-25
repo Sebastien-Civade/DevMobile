@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Zelda Encyclopedia</string>
 
+    <string name="botw_title" translatable="false">BOTW</string>
+    <string name="totk_title" translatable="false">TOTK</string>
     <string name="categories_title">Categories</string>
 
     <string name="creatures_title">Creatures</string>
