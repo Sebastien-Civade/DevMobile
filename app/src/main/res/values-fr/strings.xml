@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="creatures_title">Créatures</string>
+    <string name="monsters_title">Monstres</string>
+    <string name="materials_title">Matériaux</string>
+    <string name="equipments_title">Equipements</string>
+    <string name="treasures_title">Trésors</string>
+    <string name="fav_title">Favoris</string>
+</resources>

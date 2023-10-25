@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name" translatable="false">HyruleCompendium</string>
+
+    <string name="creatures_title">Creatures</string>
+    <string name="monsters_title">Monsters</string>
+    <string name="materials_title">Materials</string>
+    <string name="equipments_title">Equipments</string>
+    <string name="treasures_title">Treasures</string>
+    <string name="fav_title">Fav</string>
+</resources>
