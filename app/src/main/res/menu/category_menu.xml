@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/category_menu"
+        android:title="@string/categories_title"
+        android:icon="@drawable/ic_menu"
+        android:iconTint="@color/white"
+        app:showAsAction="always">
+
+        <menu>
+
+            <item
+                android:id="@+id/category_menu_creatures"
+                android:title="@string/creatures_title"
+                android:icon="@drawable/ic_creature"
+                app:showAsAction="ifRoom"/>
+
+            <item
+                android:id="@+id/category_menu_monsters"
+                android:title="@string/monsters_title"
+                android:icon="@drawable/ic_monster"
+                app:showAsAction="ifRoom"/>
+
+            <item
+                android:id="@+id/category_menu_materials"
+                android:title="@string/materials_title"
+                android:icon="@drawable/ic_material"
+                app:showAsAction="ifRoom"/>
+
+            <item
+                android:id="@+id/category_menu_equipments"
+                android:title="@string/equipments_title"
+                android:icon="@drawable/ic_equipment"
+                app:showAsAction="ifRoom"/>
+
+            <item
+                android:id="@+id/category_menu_treasures"
+                android:title="@string/treasures_title"
+                android:icon="@drawable/ic_treasure"
+                app:showAsAction="ifRoom"/>
+
+            <item
+                android:id="@+id/category_menu_fav"
+                android:title="@string/treasures_title"
+                android:icon="@drawable/ic_fav_disabled"
+                app:showAsAction="ifRoom"/>
+
+        </menu>
+
+    </item>
+
+</menu>

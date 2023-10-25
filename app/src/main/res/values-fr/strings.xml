@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="categories_title">Catégories</string>
+
     <string name="creatures_title">Créatures</string>
     <string name="monsters_title">Monstres</string>
     <string name="materials_title">Matériaux</string>
