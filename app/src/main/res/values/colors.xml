@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="black2">#1A1414</color>
+    <color name="black2d">#1A1414</color>
     <color name="darkGray">#212121</color>
+    <color name="orange">#FF6637</color>
     <color name="brown">#A27B5C</color>
     <color name="beige">#FFFDE3</color>
     <color name="lightGray">#D9D9D9</color>
