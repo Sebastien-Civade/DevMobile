@@ -14,22 +14,48 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_activity_horizontal_guideline2"/>
+        app:layout_constraintBottom_toTopOf="@id/main_activity_horizontal_guideline1"/>
 
     <TextView
         android:id="@+id/botw_title"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center_vertical"
+        android:fontFamily="@font/zelda"
+        android:gravity="center"
         android:text="@string/botw_title"
         android:textColor="@color/white"
-        android:fontFamily="@font/zelda"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/main_activity_horizontal_guideline1"
-        app:layout_constraintEnd_toStartOf="@id/main_activity_vertical_guideline2"
         app:layout_constraintStart_toEndOf="@id/main_activity_vertical_guideline1"
-        app:layout_constraintTop_toTopOf="@id/main_activity_horizontal_guideline1" />
-    
+        app:layout_constraintEnd_toStartOf="@id/main_activity_vertical_guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_activity_horizontal_guideline1"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/game_switch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:checked="false"
+        app:showText="false"
+        android:padding="4dp"
+        app:layout_constraintStart_toEndOf="@id/main_activity_vertical_guideline2"
+        app:layout_constraintEnd_toStartOf="@id/main_activity_vertical_guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_activity_horizontal_guideline1"/>
+
+    <TextView
+        android:id="@+id/totk_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/zelda"
+        android:gravity="center"
+        android:text="@string/totk_title"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/main_activity_vertical_guideline3"
+        app:layout_constraintEnd_toStartOf="@id/main_activity_vertical_guideline4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_activity_horizontal_guideline1"/>
+
     <FrameLayout
         android:id="@+id/statistics_activity_fragment_container"
         android:layout_width="match_parent"
@@ -40,27 +66,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.0415"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/main_activity_horizontal_guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.0833"/>
+        app:layout_constraintGuide_percent="0.08333"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_activity_vertical_guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.549"/>
+        app:layout_constraintGuide_percent="0.54907"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_activity_vertical_guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.661"/>
+        app:layout_constraintGuide_percent="0.66111"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/main_activity_vertical_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.77962"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/main_activity_vertical_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87870"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

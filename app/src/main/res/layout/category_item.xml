@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/creatures_icon" />
+            android:src="@drawable/ic_creature" />
 
     </androidx.cardview.widget.CardView>
 
@@ -52,7 +52,7 @@
         android:layout_width="@dimen/size_ic"
         android:layout_height="@dimen/size_ic"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/fav_icon"
+        android:src="@drawable/ic_fav_disabled"
         app:layout_constraintBottom_toTopOf="@+id/view_separator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
