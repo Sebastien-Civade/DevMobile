@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="toolbar_title">Encyclopédie Zelda</string>
     <string name="categories_title">Catégories</string>
+
+    <string name="item_card_name_placeholder">Nom</string>
+    <string name="item_card_description_placeholder">Description</string>
 
     <string name="creatures_title">Créatures</string>
     <string name="monsters_title">Monstres</string>
@@ -9,4 +12,6 @@
     <string name="equipments_title">Equipements</string>
     <string name="treasures_title">Trésors</string>
     <string name="fav_title">Favoris</string>
+
+    <string name="category_title_placeholder">Titre Catégorie</string>
 </resources>

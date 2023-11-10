@@ -6,4 +6,32 @@
     </style>
 
     <style name="Theme.HyruleCompendium" parent="Base.Theme.HyruleCompendium" />
+
+    <style name="DefaultTextStyle">
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:fontFamily">@font/zelda</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ItemCardNameStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/item_card_name_text_size</item>
+    </style>
+
+    <style name="ItemCardDescriptionStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/item_card_description_text_size</item>
+        <item name="android:fontFamily">@font/zelda</item>
+    </style>
+
+    <style name="ToolbarTheme">
+        <item name="android:textSize">@dimen/toolbar_title_text_size</item>
+        <item name="android:fontFamily">@font/zelda</item>
+    </style>
+
+    <style name="ToolbarPopupTheme" parent="Theme.AppCompat.Light">
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:fontFamily">@font/zelda</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/brown</item>
+        <item name="overlapAnchor">false</item>
+    </style>
 </resources>
