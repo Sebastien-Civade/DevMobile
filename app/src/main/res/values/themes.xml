@@ -19,7 +19,25 @@
 
     <style name="ItemCardDescriptionStyle" parent="DefaultTextStyle">
         <item name="android:textSize">@dimen/item_card_description_text_size</item>
-        <item name="android:fontFamily">@font/zelda</item>
+        <item name="android:fontFamily">@font/actor</item>
+    </style>
+
+    <style name="ItemPopupNameStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/item_popup_name_text_size</item>
+    </style>
+
+    <style name="ItemPopupDescriptionStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/item_popup_description_text_size</item>
+        <item name="android:fontFamily">@font/actor</item>
+    </style>
+
+    <style name="ItemPopupSubsectionTitleStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/item_popup_subsection_title_text_size</item>
+    </style>
+
+    <style name="ItemPopupSubsectionTextStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/item_popup_subsection_text_size</item>
+        <item name="android:fontFamily">@font/actor</item>
     </style>
 
     <style name="ToolbarTheme">

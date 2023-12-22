@@ -1,20 +1,30 @@
 <resources>
     <string name="app_name" translatable="false">HyruleCompendium</string>
+
+    <!-- Titles -->
     <string name="botw_title" translatable="false">BOTW</string>
     <string name="totk_title" translatable="false">TOTK</string>
-
     <string name="toolbar_title">Zelda Encyclopedia</string>
     <string name="categories_title">Categories</string>
-
-    <string name="item_card_name_placeholder">Name</string>
-    <string name="item_card_description_placeholder">Description</string>
-
     <string name="creatures_title">Creatures</string>
     <string name="monsters_title">Monsters</string>
     <string name="materials_title">Materials</string>
     <string name="equipments_title">Equipments</string>
     <string name="treasures_title">Treasures</string>
     <string name="fav_title">Fav</string>
+    <string name="common_locations_title">Common Locations</string>
+    <string name="drops_title">Droppable Items</string>
 
-    <string name="category_title_placeholder">Category Title</string>
+    <!-- Placeholders -->
+    <string name="category_title_placeholder">No category selected</string>
+    <string name="name_placeholder">Name</string>
+    <string name="description_placeholder">Description</string>
+    <string name="common_locations_placeholder">Locations</string>
+    <string name="drops_placeholder">Drops</string>
+
+    <!-- Texts -->
+    <string name="none_text">None</string>
+
+    <!-- Toasts -->
+    <string name="get_all_entries_no_result_toast">No result found</string>
 </resources>

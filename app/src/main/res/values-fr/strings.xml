@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Titles -->
     <string name="toolbar_title">Encyclopédie Zelda</string>
     <string name="categories_title">Catégories</string>
-
-    <string name="item_card_name_placeholder">Nom</string>
-    <string name="item_card_description_placeholder">Description</string>
-
     <string name="creatures_title">Créatures</string>
     <string name="monsters_title">Monstres</string>
     <string name="materials_title">Matériaux</string>
     <string name="equipments_title">Equipements</string>
     <string name="treasures_title">Trésors</string>
     <string name="fav_title">Favoris</string>
+    <string name="common_locations_title">Lieux Communs</string>
+    <string name="drops_title">Objets Récupérables</string>
 
-    <string name="category_title_placeholder">Titre Catégorie</string>
+    <!-- Placeholders -->
+    <string name="category_title_placeholder">Aucune catégorie sélectionnée</string>
+    <string name="name_placeholder">Nom</string>
+    <string name="description_placeholder">Description</string>
+    <string name="common_locations_placeholder">Lieux</string>
+    <string name="drops_placeholder">Objets</string>
+
+    <!-- Texts -->
+    <string name="none_text">Aucun</string>
+
+    <!-- Toasts -->
+    <string name="get_all_entries_no_result_toast">Aucun résultat trouvé</string>
 </resources>
