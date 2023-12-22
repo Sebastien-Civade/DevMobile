@@ -1,6 +1,5 @@
 package fr.scivade.hyrulecompendium
 
-import fr.scivade.hyrulecompendium.dataclasses.CreatureModel
 import fr.scivade.hyrulecompendium.responses.GetCreatureResponse
 import fr.scivade.hyrulecompendium.responses.GetEntriesResponse
 import fr.scivade.hyrulecompendium.responses.GetMonsterResponse

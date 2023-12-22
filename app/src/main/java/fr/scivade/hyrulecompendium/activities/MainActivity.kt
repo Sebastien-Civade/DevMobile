@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
     private fun setUpGameSwitchListener(){
         val gameSwitch = findViewById<SwitchCompat>(R.id.game_switch)
         gameSwitch.setOnCheckedChangeListener { _, isChecked ->
-            selectedGame = if (isChecked) "totk" else "botw"
+            selectedGame = if (isChecked) Tags.TOTK else Tags.BOTW
             galleryFragment.refreshData{}
         }
     }
