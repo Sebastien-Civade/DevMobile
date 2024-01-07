@@ -1,4 +1,4 @@
-package fr.scivade.hyrulecompendium
+package fr.scivade.hyrulecompendium.dataclasses
 
 import com.google.gson.annotations.SerializedName
 

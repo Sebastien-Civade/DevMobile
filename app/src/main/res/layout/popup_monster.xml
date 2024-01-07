@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/monster_popup_image_card"
+        android:layout_width="@dimen/item_card_image_size"
+        android:layout_height="@dimen/item_card_image_size"
+        app:cardCornerRadius="@dimen/item_card_image_corner_radius"
+        app:layout_constraintStart_toEndOf="@id/monster_popup_vertical_guideline1"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_horizontal_guideline1">
+
+        <ImageView
+            android:id="@+id/monster_popup_image"
+            android:src="@drawable/ic_monster"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/monster_popup_fav_icon"
+            android:src="@drawable/ic_fav_disabled"
+            android:layout_width="@dimen/item_popup_fav_icon_size"
+            android:layout_height="@dimen/item_popup_fav_icon_size"
+            app:layout_constraintStart_toStartOf="@id/monster_popup_vertical_guideline1"
+            app:layout_constraintTop_toBottomOf="@id/monster_popup_horizontal_guideline1"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/monster_popup_close_icon"
+        android:src="@drawable/ic_close"
+        android:layout_width="@dimen/item_popup_close_icon_size"
+        android:layout_height="@dimen/item_popup_close_icon_size"
+        app:layout_constraintEnd_toStartOf="@id/monster_popup_vertical_guideline2"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_horizontal_guideline1"/>
+
+    <TextView
+        android:id="@+id/monster_popup_name"
+        android:text="@string/name_placeholder"
+        style="@style/ItemPopupNameStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin1"
+        app:layout_constraintStart_toEndOf="@id/monster_popup_image_card"
+        app:layout_constraintEnd_toStartOf="@id/monster_popup_vertical_guideline2"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_close_icon"
+        app:layout_constraintBottom_toBottomOf="@id/monster_popup_image_card"/>
+
+    <TextView
+        android:id="@+id/monster_popup_description"
+        android:text="@string/description_placeholder"
+        style="@style/ItemPopupDescriptionStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin1"
+        app:layout_constraintStart_toEndOf="@id/monster_popup_vertical_guideline1"
+        app:layout_constraintEnd_toStartOf="@id/monster_popup_vertical_guideline2"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_image_card"/>
+
+    <TextView
+        android:id="@+id/monster_popup_locations_title"
+        android:text="@string/common_locations_title"
+        style="@style/ItemPopupSubsectionTitleStyle"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintStart_toEndOf="@id/monster_popup_vertical_guideline1"
+        app:layout_constraintEnd_toStartOf="@id/monster_popup_vertical_guideline2"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_description"/>
+
+    <TextView
+        android:id="@+id/monster_popup_locations"
+        android:text="@string/common_locations_placeholder"
+        style="@style/ItemPopupSubsectionTextStyle"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin1"
+        app:layout_constraintStart_toEndOf="@id/monster_popup_vertical_guideline1"
+        app:layout_constraintEnd_toStartOf="@id/monster_popup_vertical_guideline2"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_locations_title"/>
+
+    <TextView
+        android:id="@+id/monster_popup_drops_title"
+        android:text="@string/drops_title"
+        style="@style/ItemPopupSubsectionTitleStyle"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintStart_toEndOf="@id/monster_popup_vertical_guideline1"
+        app:layout_constraintEnd_toStartOf="@id/monster_popup_vertical_guideline2"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_locations"/>
+
+    <TextView
+        android:id="@+id/monster_popup_drops"
+        android:text="@string/drops_placeholder"
+        style="@style/ItemPopupSubsectionTextStyle"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin1"
+        app:layout_constraintStart_toEndOf="@id/monster_popup_vertical_guideline1"
+        app:layout_constraintEnd_toStartOf="@id/monster_popup_vertical_guideline2"
+        app:layout_constraintTop_toBottomOf="@id/monster_popup_drops_title"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/monster_popup_horizontal_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.01"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/monster_popup_vertical_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.01"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/monster_popup_vertical_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.99"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

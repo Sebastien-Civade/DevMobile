@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/main_activity_toolbar"
@@ -36,7 +37,7 @@
         android:id="@+id/game_switch"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:checked="true"
+        android:checked="false"
         android:padding="3dp"
         app:showText="false"
         app:layout_constraintStart_toEndOf="@id/main_activity_vertical_guideline2"
