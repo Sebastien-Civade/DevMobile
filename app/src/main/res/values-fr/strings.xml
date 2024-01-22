@@ -11,6 +11,10 @@
     <string name="fav_title">Favoris</string>
     <string name="common_locations_title">Lieux Communs</string>
     <string name="drops_title">Objets Récupérables</string>
+    <string name="attack_title">Attaque</string>
+    <string name="defense_title">Défense</string>
+    <string name="effect_title">Effet</string>
+    <string name="type_title">Type</string>
 
     <!-- Placeholders -->
     <string name="category_title_placeholder">Aucune catégorie sélectionnée</string>
@@ -18,6 +22,10 @@
     <string name="description_placeholder">Description</string>
     <string name="common_locations_placeholder">Lieux</string>
     <string name="drops_placeholder">Objets</string>
+    <string name="attack_placeholder">Attaque</string>
+    <string name="defense_placeholder">Défense</string>
+    <string name="effect_placeholder">Effet</string>
+    <string name="type_placeholder">Type</string>
 
     <!-- Texts -->
     <string name="none_text">Aucun</string>

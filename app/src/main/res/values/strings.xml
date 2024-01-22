@@ -14,6 +14,10 @@
     <string name="fav_title">Fav</string>
     <string name="common_locations_title">Common Locations</string>
     <string name="drops_title">Droppable Items</string>
+    <string name="attack_title">Attack</string>
+    <string name="defense_title">Defense</string>
+    <string name="effect_title">Effect</string>
+    <string name="type_title">Type</string>
 
     <!-- Placeholders -->
     <string name="category_title_placeholder">No category selected</string>
@@ -21,6 +25,10 @@
     <string name="description_placeholder">Description</string>
     <string name="common_locations_placeholder">Locations</string>
     <string name="drops_placeholder">Drops</string>
+    <string name="attack_placeholder">Attack</string>
+    <string name="defense_placeholder">Defense</string>
+    <string name="effect_placeholder">Effect</string>
+    <string name="type_placeholder">Type</string>
 
     <!-- Texts -->
     <string name="none_text">None</string>

@@ -2,7 +2,10 @@ package fr.scivade.hyrulecompendium
 
 import fr.scivade.hyrulecompendium.responses.GetCreatureResponse
 import fr.scivade.hyrulecompendium.responses.GetEntriesResponse
+import fr.scivade.hyrulecompendium.responses.GetEquipmentResponse
+import fr.scivade.hyrulecompendium.responses.GetMaterialResponse
 import fr.scivade.hyrulecompendium.responses.GetMonsterResponse
+import fr.scivade.hyrulecompendium.responses.GetTreasureResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -22,13 +25,31 @@ interface HyruleCompendiumAPI {
 
     @GET("entry/{id}")
     fun getCreature(
-        @Path("id") category: Int,
+        @Path("id") id: Int,
         @Query("game") game: String
     ): Call<GetCreatureResponse>
 
     @GET("entry/{id}")
     fun getMonster(
-        @Path("id") category: Int,
+        @Path("id") id: Int,
         @Query("game") game: String
     ): Call<GetMonsterResponse>
+
+    @GET("entry/{id}")
+    fun getMaterial(
+        @Path("id") id: Int,
+        @Query("game") game: String
+    ): Call<GetMaterialResponse>
+
+    @GET("entry/{id}")
+    fun getEquipment(
+        @Path("id") id: Int,
+        @Query("game") game: String
+    ): Call<GetEquipmentResponse>
+
+    @GET("entry/{id}")
+    fun getTreasure(
+        @Path("id") id: Int,
+        @Query("game") game: String
+    ): Call<GetTreasureResponse>
 }

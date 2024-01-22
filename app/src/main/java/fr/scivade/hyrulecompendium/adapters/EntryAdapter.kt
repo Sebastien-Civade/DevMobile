@@ -14,7 +14,9 @@ import fr.scivade.hyrulecompendium.Tags
 import fr.scivade.hyrulecompendium.activities.MainActivity
 import fr.scivade.hyrulecompendium.dataclasses.EntryModel
 import fr.scivade.hyrulecompendium.getMonster
+import fr.scivade.hyrulecompendium.getTreasure
 import fr.scivade.hyrulecompendium.popup.MonsterPopup
+import fr.scivade.hyrulecompendium.popup.TreasurePopup
 
 class EntryAdapter(
     private val mainActivity: MainActivity,
@@ -50,6 +52,11 @@ class EntryAdapter(
                 val monsterPopup = MonsterPopup(mainActivity)
                 getMonster(monsterPopup, mainActivity.getSelectedGame(), currentItem.id){
                     monsterPopup.show()
+                }
+            } else if (currentItem.category == Tags.TREASURE_CATEGORY){
+                val treasurePopup = TreasurePopup(mainActivity)
+                getTreasure(treasurePopup, mainActivity.getSelectedGame(), currentItem.id){
+                    treasurePopup.show()
                 }
             }
         }

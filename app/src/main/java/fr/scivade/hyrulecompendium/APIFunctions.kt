@@ -3,8 +3,10 @@ package fr.scivade.hyrulecompendium
 import android.util.Log
 import fr.scivade.hyrulecompendium.activities.MainActivity
 import fr.scivade.hyrulecompendium.popup.MonsterPopup
+import fr.scivade.hyrulecompendium.popup.TreasurePopup
 import fr.scivade.hyrulecompendium.responses.GetEntriesResponse
 import fr.scivade.hyrulecompendium.responses.GetMonsterResponse
+import fr.scivade.hyrulecompendium.responses.GetTreasureResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,6 +65,24 @@ fun getMonster(monsterPopup: MonsterPopup, game: String, id: Int, callback: () -
         }
         override fun onFailure(call: Call<GetMonsterResponse>, t: Throwable) {
             Log.e("Error (getMonster - $id) : ", "" + t.message)
+        }
+    })
+}
+
+fun getTreasure(treasurePopup: TreasurePopup, game: String, id: Int, callback: () -> Unit){
+    val retrofitService = RetrofitServiceBuilder.getRetrofitService()
+    retrofitService.getTreasure(id, game).enqueue(object: Callback<GetTreasureResponse> {
+        override fun onResponse(call: Call<GetTreasureResponse>, response: Response<GetTreasureResponse>){
+            try {
+                val responseBody = response.body()!!
+                treasurePopup.setTreasure(responseBody.treasure)
+                callback()
+            } catch (ex: Exception){
+                ex.printStackTrace()
+            }
+        }
+        override fun onFailure(call: Call<GetTreasureResponse>, t: Throwable) {
+            Log.e("Error (getTreasure - $id) : ", "" + t.message)
         }
     })
 }
