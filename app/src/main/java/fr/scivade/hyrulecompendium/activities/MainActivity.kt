@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.SwitchCompat
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.FirebaseApp
+import fr.scivade.hyrulecompendium.FavoriteRepository
 import fr.scivade.hyrulecompendium.fragments.GalleryFragment
 import fr.scivade.hyrulecompendium.R
 import fr.scivade.hyrulecompendium.Session
@@ -20,15 +22,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setUpToolbar(this)
+        val repo = FavoriteRepository()
 
-        setUpToolBarListener()
+        repo.updateData{
+            setUpToolbar(this)
 
-        setUpGameSwitchListener()
+            setUpToolBarListener()
 
-        Session.setToast(this)
+            setUpGameSwitchListener()
 
-        launchGallery()
+            Session.setToast(this)
+
+            launchGallery()
+        }
     }
 
     private fun launchGallery(){
