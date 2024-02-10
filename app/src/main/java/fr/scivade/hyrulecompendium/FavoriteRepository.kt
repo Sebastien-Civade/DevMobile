@@ -1,6 +1,5 @@
 package fr.scivade.hyrulecompendium
 
-import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -16,32 +15,37 @@ class FavoriteRepository {
         val TOTKFavoriteList = arrayListOf<Int>()
     }
 
-    fun updateData(callback: ()-> Unit){
-        dbRef.addValueEventListener(object: ValueEventListener{
+    fun updateData(callback: () -> Unit) {
+        dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // Check if the snapshot has data for "BOTW"
+                BOTWFavoriteList.clear()
+                TOTKFavoriteList.clear()
                 if (snapshot.hasChild("BOTW")) {
                     val botwSnapshot = snapshot.child("BOTW")
                     for (itemSnapshot in botwSnapshot.children) {
-                        val value = itemSnapshot.getValue(Int::class.java)
-                        value?.let { BOTWFavoriteList.add(it) }
+                        val botwId = itemSnapshot.getValue(Int::class.java)
+                        if(botwId != null){
+                            BOTWFavoriteList.add(botwId)
+                        }
                     }
                 }
-
-                // Check if the snapshot has data for "TOTK"
                 if (snapshot.hasChild("TOTK")) {
                     val totkSnapshot = snapshot.child("TOTK")
                     for (itemSnapshot in totkSnapshot.children) {
-                        val value = itemSnapshot.getValue(Int::class.java)
-                        value?.let { TOTKFavoriteList.add(it) }
+                        val totkId = itemSnapshot.getValue(Int::class.java)
+                        if(totkId != null){
+                            TOTKFavoriteList.add(totkId)
+                        }
                     }
                 }
-
                 callback()
+
             }
 
-            override fun onCancelled(error: DatabaseError) {}
-
+            override fun onCancelled(error: DatabaseError) {
+                println("Erreur updateData : $error")
+                callback()
+            }
         })
     }
 }

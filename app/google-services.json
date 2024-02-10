@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "160311965759",
-    "project_id": "hyrulecompendium-ee6a4",
-    "storage_bucket": "hyrulecompendium-ee6a4.appspot.com"
+    "project_number": "110442347751",
+    "project_id": "hyrulecompendium-247c3",
+    "storage_bucket": "hyrulecompendium-247c3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:160311965759:android:ab7d77c18368e07bd7208a",
+        "mobilesdk_app_id": "1:110442347751:android:fa15caa229d531434f3642",
         "android_client_info": {
           "package_name": "fr.scivade.hyrulecompendium"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCxxb0VWlU5h5N9bj81pLiogORDbz1UmuI"
+          "current_key": "AIzaSyBGKYMPblZacV2hWznJyQ5CZfqIesZLePM"
         }
       ],
       "services": {

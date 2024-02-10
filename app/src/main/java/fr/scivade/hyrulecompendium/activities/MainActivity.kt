@@ -23,15 +23,17 @@ class MainActivity : AppCompatActivity() {
 
         val repo = FavoriteRepository()
 
-        setUpToolbar(this)
+        repo.updateData {
+            setUpToolbar(this)
 
-        setUpToolBarListener()
+            setUpToolBarListener()
 
-        setUpGameSwitchListener()
+            setUpGameSwitchListener()
 
-        Session.setToast(this)
+            Session.setToast(this)
 
-        launchGallery()
+            launchGallery()
+        }
     }
 
     private fun launchGallery(){
