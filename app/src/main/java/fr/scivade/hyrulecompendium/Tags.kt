@@ -10,4 +10,5 @@ object Tags {
     const val MATERIAL_CATEGORY = "materials"
     const val EQUIPMENT_CATEGORY = "equipment"
     const val TREASURE_CATEGORY = "treasure"
+    const val FAV_CATEGORY = "favorite"
 }

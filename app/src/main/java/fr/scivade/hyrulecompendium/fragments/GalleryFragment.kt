@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import fr.scivade.hyrulecompendium.FavoriteRepository.Singleton.BOTWFavoriteList
+import fr.scivade.hyrulecompendium.FavoriteRepository.Singleton.TOTKFavoriteList
 import fr.scivade.hyrulecompendium.R
 import fr.scivade.hyrulecompendium.Tags
 import fr.scivade.hyrulecompendium.activities.MainActivity
@@ -16,6 +18,7 @@ import fr.scivade.hyrulecompendium.adapters.EntryCardDecoration
 import fr.scivade.hyrulecompendium.dataclasses.EntryModel
 import fr.scivade.hyrulecompendium.getAllEntries
 import fr.scivade.hyrulecompendium.getCategoryEntries
+import fr.scivade.hyrulecompendium.getEntriesById
 
 class GalleryFragment(private val mainActivity: MainActivity) : Fragment() {
     private var entryList = ArrayList<EntryModel>()
@@ -35,15 +38,25 @@ class GalleryFragment(private val mainActivity: MainActivity) : Fragment() {
         val selectedGame = mainActivity.getSelectedGame()
         val category = mainActivity.getSelectedCategory()
 
-        if (category == Tags.NO_CATEGORY){
-            getAllEntries(mainActivity, selectedGame) {
-                notifyItemListChange(previousSize)
-                callback()
+        when (category) {
+            Tags.NO_CATEGORY -> {
+                getAllEntries(mainActivity, selectedGame) {
+                    notifyItemListChange(previousSize)
+                    callback()
+                }
             }
-        } else{
-            getCategoryEntries(mainActivity, selectedGame, category){
-                notifyItemListChange(previousSize)
-                callback()
+            Tags.FAV_CATEGORY -> {
+                val favoriteList = if (selectedGame == Tags.BOTW) BOTWFavoriteList else TOTKFavoriteList
+                getEntriesById(mainActivity, selectedGame, favoriteList){
+                        notifyItemListChange(previousSize)
+                        callback()
+                }
+            }
+            else -> {
+                getCategoryEntries(mainActivity, selectedGame, category){
+                    notifyItemListChange(previousSize)
+                    callback()
+                }
             }
         }
     }
@@ -85,6 +98,10 @@ class GalleryFragment(private val mainActivity: MainActivity) : Fragment() {
             Tags.TREASURE_CATEGORY -> {
                 categoryTitle?.text = getString(R.string.treasures_title)
                 categoryIcon?.setImageResource(R.drawable.ic_treasure)
+            }
+            Tags.FAV_CATEGORY -> {
+                categoryTitle?.text = getString(R.string.fav_title)
+                categoryIcon?.setImageResource(R.drawable.ic_fav_enabled)
             }
         }
     }

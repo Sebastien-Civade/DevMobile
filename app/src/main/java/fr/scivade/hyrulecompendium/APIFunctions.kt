@@ -2,6 +2,7 @@ package fr.scivade.hyrulecompendium
 
 import android.util.Log
 import fr.scivade.hyrulecompendium.activities.MainActivity
+import fr.scivade.hyrulecompendium.dataclasses.EntryModel
 import fr.scivade.hyrulecompendium.popup.CreaturePopup
 import fr.scivade.hyrulecompendium.popup.EquipmentPopup
 import fr.scivade.hyrulecompendium.popup.MaterialPopup
@@ -9,6 +10,7 @@ import fr.scivade.hyrulecompendium.popup.MonsterPopup
 import fr.scivade.hyrulecompendium.popup.TreasurePopup
 import fr.scivade.hyrulecompendium.responses.GetCreatureResponse
 import fr.scivade.hyrulecompendium.responses.GetEntriesResponse
+import fr.scivade.hyrulecompendium.responses.GetEntryResponse
 import fr.scivade.hyrulecompendium.responses.GetEquipmentResponse
 import fr.scivade.hyrulecompendium.responses.GetMaterialResponse
 import fr.scivade.hyrulecompendium.responses.GetMonsterResponse
@@ -17,6 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Exception
+import java.security.KeyStore.Entry
 
 fun getAllEntries(mainActivity: MainActivity, game: String, callback: () -> Unit){
     val retrofitService = RetrofitServiceBuilder.getRetrofitService()
@@ -146,5 +149,39 @@ fun getTreasure(treasurePopup: TreasurePopup, game: String, id: Int, callback: (
         }
     })
 }
+
+fun addEntry(game: String, id: Int, entries: ArrayList<EntryModel>, callback: () -> Unit){
+    val retrofitService = RetrofitServiceBuilder.getRetrofitService()
+    retrofitService.getEntry(id, game).enqueue(object: Callback<GetEntryResponse> {
+        override fun onResponse(call: Call<GetEntryResponse>, response: Response<GetEntryResponse>){
+            try {
+                val responseBody = response.body()!!
+                entries.add(responseBody.entry)
+            } catch (ex: Exception){
+                ex.printStackTrace()
+            }
+            callback()
+        }
+        override fun onFailure(call: Call<GetEntryResponse>, t: Throwable) {
+            Log.e("Error (getEntry - $id) : ", "" + t.message)
+        }
+    })
+}
+
+fun getEntriesById(mainActivity: MainActivity, game: String, ids: ArrayList<Int>, callback: () -> Unit){
+    val entries = ArrayList<EntryModel>()
+    var countCallbacks = 0
+    for (id in ids){
+        addEntry(game, id , entries){
+            countCallbacks++
+            if(countCallbacks == ids.size){
+                mainActivity.getGalleryFragment().setEntryList(entries)
+                if(entries.isEmpty()) Session.showToast(R.string.get_all_entries_no_result_toast)
+                callback()
+            }
+        }
+    }
+}
+
 
 

@@ -95,6 +95,13 @@ class MainActivity : AppCompatActivity() {
                     }
                     return@setOnMenuItemClickListener true
                 }
+                R.id.category_menu_fav -> {
+                    selectedCategory = Tags.FAV_CATEGORY
+                    galleryFragment.refreshData{
+                        galleryFragment.changeCategoryInfo()
+                    }
+                    return@setOnMenuItemClickListener true
+                }
                 else -> false
             }
         }

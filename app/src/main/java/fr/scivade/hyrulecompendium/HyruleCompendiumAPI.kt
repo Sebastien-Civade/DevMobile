@@ -2,6 +2,7 @@ package fr.scivade.hyrulecompendium
 
 import fr.scivade.hyrulecompendium.responses.GetCreatureResponse
 import fr.scivade.hyrulecompendium.responses.GetEntriesResponse
+import fr.scivade.hyrulecompendium.responses.GetEntryResponse
 import fr.scivade.hyrulecompendium.responses.GetEquipmentResponse
 import fr.scivade.hyrulecompendium.responses.GetMaterialResponse
 import fr.scivade.hyrulecompendium.responses.GetMonsterResponse
@@ -52,4 +53,10 @@ interface HyruleCompendiumAPI {
         @Path("id") id: Int,
         @Query("game") game: String
     ): Call<GetTreasureResponse>
+
+    @GET("entry/{id}")
+    fun getEntry(
+        @Path("id") id: Int,
+        @Query("game") game: String
+    ): Call<GetEntryResponse>
 }

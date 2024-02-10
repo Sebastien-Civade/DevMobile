@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import fr.scivade.hyrulecompendium.FavoriteRepository.Singleton.BOTWFavoriteList
+import fr.scivade.hyrulecompendium.FavoriteRepository.Singleton.TOTKFavoriteList
 import fr.scivade.hyrulecompendium.R
 import fr.scivade.hyrulecompendium.Tags
 import fr.scivade.hyrulecompendium.activities.MainActivity
@@ -33,6 +35,7 @@ class EntryAdapter(
         val name: TextView = view.findViewById(R.id.item_card_name)
         val description: TextView = view.findViewById(R.id.item_card_description)
         val image: ImageView = view.findViewById(R.id.item_card_image)
+        val favIcon: ImageView = view.findViewById(R.id.item_card_fav_icon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -45,6 +48,15 @@ class EntryAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = itemList[position]
+        val selectedGame = mainActivity.getSelectedGame()
+
+        val favoriteList = if (selectedGame == Tags.BOTW) BOTWFavoriteList else TOTKFavoriteList
+
+        if (favoriteList.contains(currentItem.id)) {
+            holder.favIcon.setImageResource(R.drawable.ic_fav_enabled)
+        } else {
+            holder.favIcon.setImageResource(R.drawable.ic_fav_disabled)
+        }
 
         holder.name.text = currentItem.name
 
