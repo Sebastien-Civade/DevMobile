@@ -2,9 +2,15 @@ package fr.scivade.hyrulecompendium
 
 import android.util.Log
 import fr.scivade.hyrulecompendium.activities.MainActivity
+import fr.scivade.hyrulecompendium.popup.CreaturePopup
+import fr.scivade.hyrulecompendium.popup.EquipmentPopup
+import fr.scivade.hyrulecompendium.popup.MaterialPopup
 import fr.scivade.hyrulecompendium.popup.MonsterPopup
 import fr.scivade.hyrulecompendium.popup.TreasurePopup
+import fr.scivade.hyrulecompendium.responses.GetCreatureResponse
 import fr.scivade.hyrulecompendium.responses.GetEntriesResponse
+import fr.scivade.hyrulecompendium.responses.GetEquipmentResponse
+import fr.scivade.hyrulecompendium.responses.GetMaterialResponse
 import fr.scivade.hyrulecompendium.responses.GetMonsterResponse
 import fr.scivade.hyrulecompendium.responses.GetTreasureResponse
 import retrofit2.Call
@@ -51,6 +57,24 @@ fun getCategoryEntries(mainActivity: MainActivity, game: String, category: Strin
     })
 }
 
+fun getCreature(creaturePopup: CreaturePopup, game: String, id: Int, callback: () -> Unit){
+    val retrofitService = RetrofitServiceBuilder.getRetrofitService()
+    retrofitService.getCreature(id, game).enqueue(object: Callback<GetCreatureResponse> {
+        override fun onResponse(call: Call<GetCreatureResponse>, response: Response<GetCreatureResponse>){
+            try {
+                val responseBody = response.body()!!
+                creaturePopup.setCreature(responseBody.creature)
+                callback()
+            } catch (ex: Exception){
+                ex.printStackTrace()
+            }
+        }
+        override fun onFailure(call: Call<GetCreatureResponse>, t: Throwable) {
+            Log.e("Error (getCreature - $id) : ", "" + t.message)
+        }
+    })
+}
+
 fun getMonster(monsterPopup: MonsterPopup, game: String, id: Int, callback: () -> Unit){
     val retrofitService = RetrofitServiceBuilder.getRetrofitService()
     retrofitService.getMonster(id, game).enqueue(object: Callback<GetMonsterResponse> {
@@ -65,6 +89,42 @@ fun getMonster(monsterPopup: MonsterPopup, game: String, id: Int, callback: () -
         }
         override fun onFailure(call: Call<GetMonsterResponse>, t: Throwable) {
             Log.e("Error (getMonster - $id) : ", "" + t.message)
+        }
+    })
+}
+
+fun getMaterial(materialPopup: MaterialPopup, game: String, id: Int, callback: () -> Unit){
+    val retrofitService = RetrofitServiceBuilder.getRetrofitService()
+    retrofitService.getMaterial(id, game).enqueue(object: Callback<GetMaterialResponse> {
+        override fun onResponse(call: Call<GetMaterialResponse>, response: Response<GetMaterialResponse>){
+            try {
+                val responseBody = response.body()!!
+                materialPopup.setMaterial(responseBody.material)
+                callback()
+            } catch (ex: Exception){
+                ex.printStackTrace()
+            }
+        }
+        override fun onFailure(call: Call<GetMaterialResponse>, t: Throwable) {
+            Log.e("Error (getMaterial - $id) : ", "" + t.message)
+        }
+    })
+}
+
+fun getEquipment(equipmentPopup: EquipmentPopup, game: String, id: Int, callback: () -> Unit){
+    val retrofitService = RetrofitServiceBuilder.getRetrofitService()
+    retrofitService.getEquipment(id, game).enqueue(object: Callback<GetEquipmentResponse> {
+        override fun onResponse(call: Call<GetEquipmentResponse>, response: Response<GetEquipmentResponse>){
+            try {
+                val responseBody = response.body()!!
+                equipmentPopup.setEquipment(responseBody.equipment)
+                callback()
+            } catch (ex: Exception){
+                ex.printStackTrace()
+            }
+        }
+        override fun onFailure(call: Call<GetEquipmentResponse>, t: Throwable) {
+            Log.e("Error (getEquipment - $id) : ", "" + t.message)
         }
     })
 }
@@ -86,3 +146,5 @@ fun getTreasure(treasurePopup: TreasurePopup, game: String, id: Int, callback: (
         }
     })
 }
+
+

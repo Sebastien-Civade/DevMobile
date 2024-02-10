@@ -18,6 +18,9 @@
     <string name="defense_title">Defense</string>
     <string name="effect_title">Effect</string>
     <string name="type_title">Type</string>
+    <string name="cooking_effect_title">Cooking Effect</string>
+    <string name="hearts_recovered_title">Hearts Recovered</string>
+    <string name="fuse_attack_power_title">Fuse Attack Power</string>
 
     <!-- Placeholders -->
     <string name="category_title_placeholder">No category selected</string>
@@ -29,6 +32,9 @@
     <string name="defense_placeholder">Defense</string>
     <string name="effect_placeholder">Effect</string>
     <string name="type_placeholder">Type</string>
+    <string name="cooking_effect_placeholder">Cooking Effect</string>
+    <string name="hearts_recovered_placeholder">Hearts Recovered</string>
+    <string name="fuse_attack_power_placeholder">Fuse Attack Power</string>
 
     <!-- Texts -->
     <string name="none_text">None</string>

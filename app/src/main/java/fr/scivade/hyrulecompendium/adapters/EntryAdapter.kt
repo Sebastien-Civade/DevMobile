@@ -13,8 +13,14 @@ import fr.scivade.hyrulecompendium.R
 import fr.scivade.hyrulecompendium.Tags
 import fr.scivade.hyrulecompendium.activities.MainActivity
 import fr.scivade.hyrulecompendium.dataclasses.EntryModel
+import fr.scivade.hyrulecompendium.getCreature
+import fr.scivade.hyrulecompendium.getEquipment
+import fr.scivade.hyrulecompendium.getMaterial
 import fr.scivade.hyrulecompendium.getMonster
 import fr.scivade.hyrulecompendium.getTreasure
+import fr.scivade.hyrulecompendium.popup.CreaturePopup
+import fr.scivade.hyrulecompendium.popup.EquipmentPopup
+import fr.scivade.hyrulecompendium.popup.MaterialPopup
 import fr.scivade.hyrulecompendium.popup.MonsterPopup
 import fr.scivade.hyrulecompendium.popup.TreasurePopup
 
@@ -48,15 +54,36 @@ class EntryAdapter(
         Glide.with(mainActivity).load(Uri.parse(currentItem.imageUrl)).into(holder.image)
 
         holder.itemView.setOnClickListener {
-            if (currentItem.category == Tags.MONSTER_CATEGORY){
-                val monsterPopup = MonsterPopup(mainActivity)
-                getMonster(monsterPopup, mainActivity.getSelectedGame(), currentItem.id){
-                    monsterPopup.show()
+            when(currentItem.category){
+                Tags.CREATURE_CATEGORY -> {
+                    val creaturePopup = CreaturePopup(mainActivity)
+                    getCreature(creaturePopup, mainActivity.getSelectedGame(), currentItem.id){
+                        creaturePopup.show()
+                    }
                 }
-            } else if (currentItem.category == Tags.TREASURE_CATEGORY){
-                val treasurePopup = TreasurePopup(mainActivity)
-                getTreasure(treasurePopup, mainActivity.getSelectedGame(), currentItem.id){
-                    treasurePopup.show()
+                Tags.MONSTER_CATEGORY -> {
+                    val monsterPopup = MonsterPopup(mainActivity)
+                    getMonster(monsterPopup, mainActivity.getSelectedGame(), currentItem.id){
+                        monsterPopup.show()
+                    }
+                }
+                Tags.MATERIAL_CATEGORY -> {
+                    val materialPopup = MaterialPopup(mainActivity)
+                    getMaterial(materialPopup, mainActivity.getSelectedGame(), currentItem.id){
+                        materialPopup.show()
+                    }
+                }
+                Tags.EQUIPMENT_CATEGORY -> {
+                    val equipmentPopup = EquipmentPopup(mainActivity)
+                    getEquipment(equipmentPopup, mainActivity.getSelectedGame(), currentItem.id){
+                        equipmentPopup.show()
+                    }
+                }
+                Tags.TREASURE_CATEGORY -> {
+                    val treasurePopup = TreasurePopup(mainActivity)
+                    getTreasure(treasurePopup, mainActivity.getSelectedGame(), currentItem.id){
+                        treasurePopup.show()
+                    }
                 }
             }
         }

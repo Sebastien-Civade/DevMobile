@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import fr.scivade.hyrulecompendium.R
 import fr.scivade.hyrulecompendium.activities.MainActivity
@@ -60,6 +61,20 @@ class EquipmentPopup(
         findViewById<TextView>(R.id.equipment_popup_attack).text = equipment.properties.attack.toString()
 
         findViewById<TextView>(R.id.equipment_popup_defense).text = equipment.properties.defense.toString()
+
+        if (equipment.properties.type == null){
+            findViewById<TextView>(R.id.equipment_popup_type_title).isVisible = false
+            findViewById<TextView>(R.id.equipment_popup_type).isVisible = false
+        } else{
+            findViewById<TextView>(R.id.equipment_popup_type).text = equipment.properties.type
+        }
+
+        if (equipment.properties.effect == null){
+            findViewById<TextView>(R.id.equipment_popup_effect_title).isVisible = false
+            findViewById<TextView>(R.id.equipment_popup_effect).isVisible = false
+        } else{
+            findViewById<TextView>(R.id.equipment_popup_effect).text = equipment.properties.effect
+        }
 
     }
 
