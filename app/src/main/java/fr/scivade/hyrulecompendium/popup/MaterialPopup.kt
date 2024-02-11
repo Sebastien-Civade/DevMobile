@@ -46,7 +46,11 @@ class MaterialPopup(
 
     private fun setUpImage() {
         val imageView = findViewById<ImageView>(R.id.material_popup_image)
-        Glide.with(context).load(Uri.parse(material.imageUrl)).into(imageView)
+        if(selectedGame == Tags.BOTW){
+            Glide.with(context).load(Uri.parse(material.imageUrl)).into(imageView)
+        } else {
+            Glide.with(mainActivity).load(Uri.parse("https://i.imgur.com/cEbgSy9.png")).into(imageView)
+        }
     }
 
     private fun setUpInfo(){

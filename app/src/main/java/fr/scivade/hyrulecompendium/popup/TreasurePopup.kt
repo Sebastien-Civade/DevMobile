@@ -44,7 +44,11 @@ class TreasurePopup(
 
     private fun setUpImage() {
         val imageView = findViewById<ImageView>(R.id.treasure_popup_image)
-        Glide.with(context).load(Uri.parse(treasure.imageUrl)).into(imageView)
+        if(selectedGame == Tags.BOTW){
+            Glide.with(context).load(Uri.parse(treasure.imageUrl)).into(imageView)
+        } else {
+            Glide.with(mainActivity).load(Uri.parse("https://i.imgur.com/cEbgSy9.png")).into(imageView)
+        }
     }
 
     private fun setUpInfo(){
