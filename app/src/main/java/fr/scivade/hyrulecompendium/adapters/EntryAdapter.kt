@@ -63,14 +63,14 @@ class EntryAdapter(
 
         if(selectedGame == Tags.TOTK){
             Glide.with(mainActivity).load(Uri.parse("https://i.imgur.com/cEbgSy9.png")).into(holder.image)
+        } else{
+            Glide.with(mainActivity).load(Uri.parse(currentItem.imageUrl)).into(holder.image)
         }
 
         holder.name.text = currentItem.name
 
         holder.description.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
         holder.description.text = currentItem.description
-
-        Glide.with(mainActivity).load(Uri.parse(currentItem.imageUrl)).into(holder.image)
 
         holder.itemView.setOnClickListener {
             when(currentItem.category){
