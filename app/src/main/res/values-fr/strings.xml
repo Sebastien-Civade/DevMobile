@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Titles -->
-    <string name="toolbar_title">Encyclopédie Zelda</string>
-    <string name="categories_title">Catégories</string>
-    <string name="creatures_title">Créatures</string>
+    <string name="toolbar_title">Encyclopedie Zelda</string>
+    <string name="categories_title">Categories</string>
+    <string name="creatures_title">Creatures</string>
     <string name="monsters_title">Monstres</string>
-    <string name="materials_title">Matériaux</string>
+    <string name="materials_title">Materiaux</string>
     <string name="equipments_title">Equipements</string>
-    <string name="treasures_title">Trésors</string>
+    <string name="treasures_title">Tresors</string>
     <string name="fav_title">Favoris</string>
     <string name="common_locations_title">Lieux Communs</string>
-    <string name="drops_title">Objets Récupérables</string>
+    <string name="drops_title">Objets Recuperables</string>
     <string name="attack_title">Attaque</string>
-    <string name="defense_title">Défense</string>
+    <string name="defense_title">Defense</string>
     <string name="effect_title">Effet</string>
     <string name="type_title">Type</string>
     <string name="cooking_effect_title">Effet de cuisine</string>
-    <string name="hearts_recovered_title">Coeurs récupérés</string>
-    <string name="fuse_attack_power_title">Puissance d\'attaque fusionnée</string>
+    <string name="hearts_recovered_title">Coeurs recuperes</string>
+    <string name="fuse_attack_power_title">Puissance d\'attaque fusionnee</string>
 
     <!-- Placeholders -->
-    <string name="category_title_placeholder">Aucune catégorie sélectionnée</string>
+    <string name="category_title_placeholder">Aucune categorie selectionnee</string>
     <string name="name_placeholder">Nom</string>
     <string name="description_placeholder">Description</string>
     <string name="common_locations_placeholder">Lieux</string>
     <string name="drops_placeholder">Objets</string>
     <string name="attack_placeholder">Attaque</string>
-    <string name="defense_placeholder">Défense</string>
+    <string name="defense_placeholder">Defense</string>
     <string name="effect_placeholder">Effet</string>
     <string name="type_placeholder">Type</string>
     <string name="cooking_effect_placeholder">Effet de cuisine</string>
-    <string name="hearts_recovered_placeholder">Hearts recovered</string>
-    <string name="fuse_attack_power_placeholder">Puissance d\'attaque fusionnée</string>
+    <string name="hearts_recovered_placeholder">Coeurs recuperes</string>
+    <string name="fuse_attack_power_placeholder">Puissance d\'attaque fusionnee</string>
 
 
     <!-- Texts -->

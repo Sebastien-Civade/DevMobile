@@ -3,6 +3,7 @@ package fr.scivade.hyrulecompendium.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.appcompat.widget.Toolbar
 import fr.scivade.hyrulecompendium.FavoriteRepository
@@ -120,7 +121,16 @@ class MainActivity : AppCompatActivity() {
     private fun setUpGameSwitchListener(){
         val gameSwitch = findViewById<SwitchCompat>(R.id.game_switch)
         gameSwitch.setOnCheckedChangeListener { _, isChecked ->
-            selectedGame = if (isChecked) Tags.TOTK else Tags.BOTW
+            if (isChecked) {
+                selectedGame = Tags.TOTK
+                findViewById<TextView>(R.id.totk_title).setTextColor(getColor(R.color.greenDark))
+                findViewById<TextView>(R.id.botw_title).setTextColor(getColor(R.color.white))
+            } else {
+                selectedGame = Tags.BOTW
+                findViewById<TextView>(R.id.botw_title).setTextColor(getColor(R.color.gold))
+                findViewById<TextView>(R.id.totk_title).setTextColor(getColor(R.color.white))
+            }
+            //selectedGame = if (isChecked) Tags.TOTK else Tags.BOTW
             galleryFragment.refreshData{}
         }
     }

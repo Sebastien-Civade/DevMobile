@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.graphics.text.LineBreaker
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
@@ -61,6 +62,7 @@ class TreasurePopup(
 
         var locationsText = ""
         findViewById<TextView>(R.id.treasure_popup_locations).apply {
+            movementMethod = ScrollingMovementMethod.getInstance()
             if (treasure.locations.isNullOrEmpty()){
                 text = mainActivity.getString(R.string.none_text)
             } else{
@@ -73,6 +75,7 @@ class TreasurePopup(
 
         var dropsText = ""
         findViewById<TextView>(R.id.treasure_popup_drops).apply {
+            movementMethod = ScrollingMovementMethod.getInstance()
             if (treasure.drops.isNullOrEmpty()){
                 text = mainActivity.getString(R.string.none_text)
             } else{

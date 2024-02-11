@@ -5,6 +5,10 @@
     <color name="darkGray">#212121</color>
     <color name="orange">#FF6637</color>
     <color name="brown">#A27B5C</color>
+    <color name="greenDark">#0d9263</color>
+    <color name="greenLight">#4aba91</color>
+    <color name="gold">#d4ce46</color>
+    <color name="yellowLight">#FFFF99</color>
     <color name="beige">#FFFDE3</color>
     <color name="lightGray">#D9D9D9</color>
     <color name="white">#FFFFFFFF</color>

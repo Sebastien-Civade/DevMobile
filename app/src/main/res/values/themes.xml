@@ -13,6 +13,10 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="GalleryCategoryTitleStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/gallery_category_title_text_size</item>
+    </style>
+
     <style name="ItemCardNameStyle" parent="DefaultTextStyle">
         <item name="android:textSize">@dimen/item_card_name_text_size</item>
     </style>

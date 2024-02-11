@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.graphics.text.LineBreaker
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
@@ -61,6 +62,7 @@ class MonsterPopup(
 
         var locationsText = ""
         findViewById<TextView>(R.id.monster_popup_locations).apply {
+            movementMethod = ScrollingMovementMethod.getInstance()
             if (monster.locations.isNullOrEmpty()){
                 text = mainActivity.getString(R.string.none_text)
             } else{
@@ -73,6 +75,7 @@ class MonsterPopup(
 
         var dropsText = ""
         findViewById<TextView>(R.id.monster_popup_drops).apply {
+            movementMethod = ScrollingMovementMethod.getInstance()
             if (monster.drops.isNullOrEmpty()){
                 text = mainActivity.getString(R.string.none_text)
             } else{

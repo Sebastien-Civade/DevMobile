@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.graphics.text.LineBreaker
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
@@ -67,6 +68,7 @@ class MaterialPopup(
 
         var locationsText = ""
         findViewById<TextView>(R.id.material_popup_locations).apply {
+            movementMethod = ScrollingMovementMethod.getInstance()
             if (material.locations.isNullOrEmpty()){
                 text = mainActivity.getString(R.string.none_text)
             } else{

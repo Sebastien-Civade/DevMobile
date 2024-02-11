@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.graphics.text.LineBreaker
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
@@ -64,6 +65,7 @@ class CreaturePopup(
 
         var locationsText = ""
         findViewById<TextView>(R.id.creature_popup_locations).apply {
+            movementMethod = ScrollingMovementMethod.getInstance()
             if (creature.locations.isNullOrEmpty()){
                 text = mainActivity.getString(R.string.none_text)
             } else{
@@ -77,6 +79,7 @@ class CreaturePopup(
         if (!creature.drops.isNullOrEmpty()){
             var dropsText = ""
             findViewById<TextView>(R.id.creature_popup_drops).apply {
+                movementMethod = ScrollingMovementMethod.getInstance()
                 if (creature.drops.isNullOrEmpty()){
                     text = mainActivity.getString(R.string.none_text)
                 } else{
