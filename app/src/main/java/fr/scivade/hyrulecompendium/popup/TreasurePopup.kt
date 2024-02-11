@@ -9,7 +9,9 @@ import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import fr.scivade.hyrulecompendium.FavoriteRepository
 import fr.scivade.hyrulecompendium.R
+import fr.scivade.hyrulecompendium.Tags
 import fr.scivade.hyrulecompendium.activities.MainActivity
 import fr.scivade.hyrulecompendium.dataclasses.TreasureModel
 
@@ -18,6 +20,10 @@ class TreasurePopup(
 ) : Dialog(mainActivity) {
 
     private lateinit var treasure: TreasureModel
+    private val selectedGame = mainActivity.getSelectedGame()
+    private val favoriteList = if (selectedGame == Tags.BOTW) FavoriteRepository.Singleton.BOTWFavoriteList else FavoriteRepository.Singleton.TOTKFavoriteList
+    private val repo = FavoriteRepository()
+    private val galleryFragment = mainActivity.getGalleryFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -30,6 +36,10 @@ class TreasurePopup(
         setUpImage()
 
         setUpInfo()
+
+        setFav()
+
+        updateFav()
     }
 
     private fun setUpImage() {
@@ -82,5 +92,31 @@ class TreasurePopup(
 
     private fun resizeWindow(){
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+    }
+
+    private fun setFav(){
+        if (favoriteList.contains(treasure.id)) {
+            findViewById<ImageView>(R.id.treasure_popup_fav_icon).setImageResource(R.drawable.ic_fav_enabled)
+        } else {
+            findViewById<ImageView>(R.id.treasure_popup_fav_icon).setImageResource(R.drawable.ic_fav_disabled)
+        }
+    }
+
+    private fun updateFav(){
+        findViewById<ImageView>(R.id.treasure_popup_fav_icon).setOnClickListener {
+            if(favoriteList.contains(treasure.id)){
+                favoriteList.remove(treasure.id)
+                repo.sendData(favoriteList, selectedGame){
+                    setFav()
+                    galleryFragment.refreshData {}
+                }
+            } else {
+                favoriteList.add(treasure.id)
+                repo.sendData(favoriteList, selectedGame){
+                    setFav()
+                    galleryFragment.refreshData {}
+                }
+            }
+        }
     }
 }

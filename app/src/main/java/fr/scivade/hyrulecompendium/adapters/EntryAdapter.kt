@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import fr.scivade.hyrulecompendium.FavoriteRepository
 import fr.scivade.hyrulecompendium.FavoriteRepository.Singleton.BOTWFavoriteList
 import fr.scivade.hyrulecompendium.FavoriteRepository.Singleton.TOTKFavoriteList
 import fr.scivade.hyrulecompendium.R
@@ -49,6 +50,8 @@ class EntryAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = itemList[position]
         val selectedGame = mainActivity.getSelectedGame()
+        val repo = FavoriteRepository()
+        val galleryFragment = mainActivity.getGalleryFragment()
 
         val favoriteList = if (selectedGame == Tags.BOTW) BOTWFavoriteList else TOTKFavoriteList
 
@@ -56,6 +59,10 @@ class EntryAdapter(
             holder.favIcon.setImageResource(R.drawable.ic_fav_enabled)
         } else {
             holder.favIcon.setImageResource(R.drawable.ic_fav_disabled)
+        }
+
+        if(selectedGame == Tags.TOTK){
+            Glide.with(mainActivity).load(Uri.parse("https://i.imgur.com/cEbgSy9.png")).into(holder.image)
         }
 
         holder.name.text = currentItem.name
@@ -96,6 +103,19 @@ class EntryAdapter(
                     getTreasure(treasurePopup, mainActivity.getSelectedGame(), currentItem.id){
                         treasurePopup.show()
                     }
+                }
+            }
+        }
+        holder.favIcon.setOnClickListener{
+            if(favoriteList.contains(currentItem.id)){
+                favoriteList.remove(currentItem.id)
+                repo.sendData(favoriteList, selectedGame){
+                    galleryFragment.refreshData {}
+                }
+            } else {
+                favoriteList.add(currentItem.id)
+                repo.sendData(favoriteList, selectedGame){
+                    galleryFragment.refreshData {}
                 }
             }
         }

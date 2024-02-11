@@ -48,4 +48,28 @@ class FavoriteRepository {
             }
         })
     }
+
+    fun sendData(favList: ArrayList<Int>, selectedGame: String, callback: () -> Unit){
+        if(selectedGame == Tags.BOTW){
+            val botwFavList = dbRef.child("BOTW")
+            botwFavList.setValue(favList)
+                .addOnSuccessListener {
+                    println("Data updated successfully.")
+                    callback()
+                }
+                .addOnFailureListener { exception ->
+                    println("Error updating data: $exception")
+                }
+        } else{
+            val totkFavList = dbRef.child("TOTK")
+            totkFavList.setValue(favList)
+                .addOnSuccessListener {
+                    println("Data updated successfully.")
+                    callback()
+                }
+                .addOnFailureListener { exception ->
+                    println("Error updating data: $exception")
+                }
+        }
+    }
 }
